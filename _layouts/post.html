@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<article class="post">
+
+  <h1>{{ page.title }}</h1>
+  <p>
+    <small>
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y-%m-%d" }}
+      </time>
+    </small>
+  </p>
+
+  {{ content }}
+<!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-theme="custom" data-icon_l="thmb7-u" data-icon_d="thmb4-d" data-icon_l_c_v="#138e15" data-icon_d_c_v="#fb053a" data-identifier="{{ page.url | absolute_url }}"> data-label_c_v="#0e6220" data-counter_l_c="#117334" data-counter_d_c="#e6290b" data-brdr_c="#0c0000" data-ef_voting="bounce" data-white_label="true" data-rich_snippet="true"></span>
+<script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","https://w.likebtn.com/js/w/widget.js");</script>
+<!-- LikeBtn.com END -->
+  <hr>
+
+  {% if page.tags %}
+    <p>
+      <strong>Tags:</strong>
+      {% for tag in page.tags %}
+        <a class="tag" href="/blog/tag/{{ tag | slugify }}/">{{ tag }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
+  {% if page.categories %}
+    <p>
+      <strong>Categories:</strong>
+      {% for category in page.categories %}
+        <a class="category" href="/blog/category/{{ category | slugify }}/">{{ category }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
+
+  <nav style="margin-top:2em;">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+    {% endif %}
+  </nav>
+<script src="https://utteranc.es/client.js"
+        repo="nicolaszadeh/my-academic-site"
+        issue-term="pathname"
+        label="💬 comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</article>

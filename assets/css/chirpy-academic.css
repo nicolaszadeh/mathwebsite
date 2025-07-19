@@ -1,0 +1,269 @@
+/* --- Chirpy-Inspired Academic CSS for AcademicPages --- */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,400,700&display=swap');
+/* 1. Color Palette & Global Variables */
+:root {
+  --primary-color: #40916C;     /* Navbar main blue */
+  --secondary-color: #1A759F;   /* Accent purple for headings, hovers */
+  --accent-color: #06b6d4;      /* Tag, pill, button accent */
+  --bg-light: #f5f7fa;          /* Body background */
+  --bg-dark: #262b32;           /* Footer/nav background */
+  --text-main: #23272f;         /* Default text */
+  --text-light: #fff;           /* Light text (nav/footer/buttons) */
+  --card-bg: #fff;              /* Panels/cards */
+  --card-shadow: 0 4px 12px rgba(60,72,88,0.13);
+  --border-radius: 1rem;
+  --sidebar-bg: #e3eaf6;
+  --sidebar-border: #b4c8e7;
+/*   --font-sans: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; */
+  --font-sans: 'Clash Grotesk', Arial, sans-serif;
+}
+body,
+h1, h2, h3, h4, h5, h6,
+p, li, a, span, div, th, td,
+.sidebar, .sidebar-sticky,
+.main-content, .page-content, .container, .col-sm-9,
+.panel, .panel-body, .author-profile,
+.site-title, .site-title a, .navbar, .navbar-brand, .navbar-nav,
+footer, .footer,
+blockquote, pre, code
+{
+  font-family: var(--font-sans) !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+/* 2. Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Clash+Grotesk:wght@200;400;700&display=swap');
+
+/* 3. General Layout */
+body {
+  /* font-family: var(--font-sans); */
+  font-family: 'Clash Grotesk', Arial, sans-serif;
+  font-weight: 200;
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+a {
+  color: var(--primary-color);
+  transition: color 0.2s;
+}
+a:hover, a:focus {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* 4. Navbar/Header */
+.navbar,
+.navbar-default,
+.navbar-inverse {
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+  color: var(--text-light);
+  border: none;
+  box-shadow: 0 4px 32px rgba(79, 140, 255, 0.09);
+  min-height: 72px;
+  margin-bottom: 0;
+  z-index: 1002;
+}
+
+.navbar-brand {
+  color: #fffbe7 !important;
+  font-weight: bold;
+  font-size: 2.1rem;
+  letter-spacing: 0.04em;
+  text-shadow: 0 3px 8px rgba(24,78,119,0.07);
+}
+
+.navbar-nav > li > a {
+  color: var(--text-light) !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* 5. Sidebar separation */
+.sidebar, .sidebar-sticky {
+  background: var(--sidebar-bg) !important;
+  border-right: 2px solid var(--sidebar-border) !important;
+  min-height: 100vh;
+  padding-top: 2rem;
+  box-shadow: 2px 0 8px rgba(24, 78, 119, 0.08);
+  z-index: 1000;
+  /* padding-left: 2rem; */
+}
+
+/* 6. Main Content Panel */
+.main-content, .page-content, .container, .col-sm-9 {
+  background: var(--card-bg) !important;
+  border-radius: 1.25rem;
+  box-shadow: 0 6px 32px rgba(60,72,88,0.09);
+  margin: 2rem 0;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+}
+
+/* 7. Headings and Section Titles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.panel-title, .page-header {
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+
+/* 8. Buttons */
+.btn, .btn-primary {
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover, .btn:focus, .btn-primary:focus {
+  background: var(--secondary-color);
+  color: var(--text-light);
+}
+
+/* 9. Publication/Project Cards */
+.publication, .project, .talk {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: none !important;
+}
+
+.publication .title, .project .title, .talk .title {
+  color: var(--primary-color);
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+/* 10. Tags, Pills, Categories */
+.label, .tag, .category {
+  background: var(--accent-color) !important;
+  color: var(--text-light) !important;
+  border-radius: 999px !important;
+  padding: 0.2em 0.9em !important;
+  font-size: 0.92em;
+  font-weight: 600;
+  margin-right: 0.35em;
+}
+
+/* 11. Blockquotes */
+blockquote {
+  border-left: 5px solid var(--secondary-color);
+  background: #eef2ff;
+  color: #4b5563;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/* 12. HR Line */
+hr {
+  border: 0;
+  border-top: 2px solid var(--accent-color);
+  margin: 2.5rem 0;
+}
+
+/* 13. Footer */
+footer {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-top: none ;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  box-shadow: var(--card-shadow);
+  margin-top: 3rem;
+  /* padding: 1.6rem 0 1rem 0; */
+}
+
+footer a {
+  color: var(--accent-color);
+}
+
+/* 14. Code and Pre */
+pre, code {
+  background: #1e293b;
+  color: #a7f3d0;
+  border-radius: 0.5em;
+  padding: 0.2em 0.5em;
+}
+
+/* 15. Images */
+img, .img-responsive {
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 2px 6px rgba(60,72,88,0.14);
+  max-width: 100%;
+}
+
+/* 16. Responsive Tweaks */
+@media (max-width: 900px) {
+  .sidebar, .sidebar-sticky {
+    border-right: none !important;
+    border-bottom: 2px solid var(--sidebar-border) !important;
+    min-height: unset;
+    padding-top: 1rem;
+  }
+  .main-content, .page-content, .container, .col-sm-9 {
+    border-radius: 1rem;
+    margin: 1.2rem 0;
+    padding: 1.2rem 0.9rem;
+  }
+}
+
+/* 17. Scrollbar Styling */
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+}
+::-webkit-scrollbar {
+  background: #dbeafe;
+}
+/* .main-content, .page-content, .container, .col-sm-9 { */
+  /* margin-bottom: 0 !important; */
+  /* border-bottom-left-radius: 0 !important; */
+  /* border-bottom-right-radius: 0 !important; */
+/* } */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page__footer {
+  background: #1a1d21 !important;
+  margin-top: auto;
+  box-shadow: none !important;
+}
+
+.sidebar.sticky {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center everything horizontally */
+}
+
+.sidebar .author__avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center image inside avatar box */
+  width: 100%;
+}
+
+.sidebar .author__avatar img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(60,72,88,0.14);
+}
+
+/* Align everything after the image to the left, flush with image left border */
+.sidebar .author__avatar + * {
+  width: 120px;
+  max-width: 100%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
