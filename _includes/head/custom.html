@@ -15,3 +15,30 @@
 <meta name="theme-color" content="#ffffff"/>
 
 <!-- end custom head snippets -->
+<script>
+(function() {
+  // Only run if we're in the browser
+  if (typeof window === "undefined") return;
+
+  // Get current hour (0-23, local time)
+  var now = new Date();
+  var hour = now.getHours();
+
+  // Dark mode if hour >= 21 or hour < 7
+  var isDark = (hour >= 21 || hour < 7);
+
+  // Set attribute on <html>
+  var html = document.documentElement;
+  if (isDark) {
+    html.setAttribute("data-theme", "dark");
+    // Optional: If you use a JS-based theme toggle, trigger it here
+    // For example, if your site saves theme in localStorage:
+    localStorage.setItem("theme", "dark");
+  } else {
+    html.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+  }
+
+  // If your theme uses a toggle button, you may want to update it here
+})();
+</script>

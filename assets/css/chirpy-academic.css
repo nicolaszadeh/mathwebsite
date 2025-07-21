@@ -94,7 +94,7 @@ a:hover, a:focus {
 /* 6. Main Content Panel */
 .main-content, .page-content, .container, .col-sm-9 {
   background: var(--card-bg) !important;
-  border-radius: 1.25rem;
+  border-radius: 0 !important;;
   box-shadow: 0 6px 32px rgba(60,72,88,0.09);
   margin: 2rem 0;
   padding: 2.5rem 2.5rem 2rem 2.5rem;
@@ -267,3 +267,296 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+/* === DARK MODE OVERRIDES === */
+
+html[data-theme="dark"] body {
+  background: #181a1b !important;
+  color: #eee !important;
+}
+
+/* Headings */
+html[data-theme="dark"] h1, 
+html[data-theme="dark"] h2, 
+html[data-theme="dark"] h3, 
+html[data-theme="dark"] h4, 
+html[data-theme="dark"] h5, 
+html[data-theme="dark"] h6 {
+  color: #99d6ea !important;
+}
+
+/* Main content, containers, cards, posts */
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .page-content,
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .col-sm-9,
+html[data-theme="dark"] .publication,
+html[data-theme="dark"] .project,
+html[data-theme="dark"] .talk,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .panel-body {
+  background: #23262d !important;
+  color: #eee !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22) !important;
+}
+
+/* Sidebar */
+html[data-theme="dark"] .sidebar, 
+html[data-theme="dark"] .sidebar-sticky {
+  background: #191c22 !important;
+  color: #eee !important;
+  border-right: 2px solid #23262d !important;
+}
+
+/* Footer */
+html[data-theme="dark"] footer,
+html[data-theme="dark"] .footer,
+html[data-theme="dark"] .page__footer {
+  background: #181a1b !important;
+  color: #aaa !important;
+  border-top: none !important;
+}
+
+/* Navbar */
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .navbar-default,
+html[data-theme="dark"] .navbar-inverse {
+  background: linear-gradient(90deg, #222c36 0%, #222632 100%) !important;
+  color: #fff !important;
+}
+
+/* Links */
+html[data-theme="dark"] a {
+  color: #7fd7fa !important;
+}
+html[data-theme="dark"] a:hover, 
+html[data-theme="dark"] a:focus {
+  color: #99d6ea !important;
+}
+
+/* Buttons, tags, pills */
+html[data-theme="dark"] .btn, 
+html[data-theme="dark"] .btn-primary {
+  background: #19537a !important;
+  color: #eee !important;
+}
+html[data-theme="dark"] .btn:hover, 
+html[data-theme="dark"] .btn-primary:hover, 
+html[data-theme="dark"] .btn:focus, 
+html[data-theme="dark"] .btn-primary:focus {
+  background: #4172a6 !important;
+  color: #eee !important;
+}
+html[data-theme="dark"] .label, 
+html[data-theme="dark"] .tag, 
+html[data-theme="dark"] .category {
+  background: #19537a !important;
+  color: #eee !important;
+}
+
+/* Blockquotes */
+html[data-theme="dark"] blockquote {
+  background: #222b36 !important;
+  color: #bfc9d1 !important;
+  border-left: 5px solid #7fd7fa !important;
+}
+
+/* Tables */
+html[data-theme="dark"] table,
+html[data-theme="dark"] th,
+html[data-theme="dark"] td {
+  background: #23262d !important;
+  color: #eee !important;
+  border-color: #444 !important;
+}
+
+/* Pre/code */
+html[data-theme="dark"] pre,
+html[data-theme="dark"] code {
+  background: #11141a !important;
+  color: #9af5e0 !important;
+}
+
+/* Scrollbar (for webkit browsers) */
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #4172a6;
+}
+html[data-theme="dark"] ::-webkit-scrollbar {
+  background: #222632;
+}
+
+/* Images: optional, slight darkening for harmony */
+html[data-theme="dark"] img, 
+html[data-theme="dark"] .img-responsive {
+  filter: brightness(0.92) contrast(1.08);
+}
+
+/* Miscellaneous: remove box-shadows if you prefer flatter look in dark */
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .page-content,
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .col-sm-9 {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18) !important;
+}
+
+
+/* === SIDEBAR FULL HEIGHT, POSITION, AND RESPONSIVENESS === */
+
+/* Make sidebar always full height and sticky on desktop */
+.sidebar,
+.sidebar-sticky {
+  min-height: 100vh !important;
+  height: 100vh !important;
+  position: sticky !important;
+  top: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  overflow-y: auto !important;
+  z-index: 1000;
+  background: var(--sidebar-bg) !important; /* fallback, or your dark/light variable */
+  box-shadow: 2px 0 8px rgba(24, 78, 119, 0.08);
+  border-right: 2px solid var(--sidebar-border) !important;
+  padding-top: 2rem;
+}
+
+/* Make sure main page wrapper is a flex container so sidebar and main content align */
+.page__container, .wrapper, .site-main {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  min-height: 100vh;
+}
+
+/* Remove top margin on main content so it lines up with sidebar */
+.main-content,
+.page-content,
+.container,
+.col-sm-9 {
+  margin-top: 0 !important;
+}
+
+/* Responsive fix: collapse sidebar on mobile */
+@media (max-width: 900px) {
+  .sidebar, .sidebar-sticky {
+    min-height: unset !important;
+    height: auto !important;
+    position: static !important;
+    border-right: none !important;
+    border-bottom: 2px solid var(--sidebar-border) !important;
+    padding-top: 1rem;
+    overflow-y: visible !important;
+    box-shadow: none !important;
+  }
+  .page__container, .wrapper, .site-main {
+    flex-direction: column !important;
+  }
+}
+
+/* Optional: improve avatar/image alignment in sidebar */
+.sidebar .author__avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.sidebar .author__avatar img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(60,72,88,0.14);
+}
+.sidebar .author__avatar + * {
+  width: 120px;
+  max-width: 100%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* === FORCE FIXED SIDEBAR WIDTH ACROSS SITE === */
+
+/* Make sure the container is flex (already the case in your CSS) */
+.page__container, .wrapper, .site-main {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  min-height: 100vh;
+}
+
+/* Fix the sidebar width and prevent shrinking */
+.sidebar, .sidebar-sticky {
+  width: 320px !important;      /* set desired sidebar width */
+  min-width: 320px !important;  /* prevent shrinking */
+  max-width: 320px !important;  /* prevent expanding */
+  box-sizing: border-box;
+  flex: 0 0 320px !important;   /* do NOT shrink or grow */
+  position: sticky !important;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1000;
+  /* Your background/border styles here */
+}
+
+/* Main content: take the rest of the space */
+.main-content, .page-content, .container, .col-sm-9 {
+  flex: 1 1 0%;
+  min-width: 0;  /* allows content to shrink if needed */
+  margin-top: 0 !important;
+  box-sizing: border-box;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+/* Responsive: sidebar becomes top-bar on small screens */
+@media (max-width: 900px) {
+  .page__container, .wrapper, .site-main {
+    flex-direction: column !important;
+  }
+  .sidebar, .sidebar-sticky {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    position: static !important;
+    border-right: none !important;
+    border-bottom: 2px solid var(--sidebar-border) !important;
+    padding-top: 1rem;
+    overflow-y: visible !important;
+    box-shadow: none !important;
+  }
+  .main-content, .page-content, .container, .col-sm-9 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+/* Remove gap between sidebar and content */
+.page__container {
+  gap: 0 !important;           /* For flexbox gap property */
+  padding-left: 0 !important;  /* Remove any padding */
+  padding-right: 0 !important;
+}
+
+.sidebar {
+  margin-right: 0 !important;  /* Remove sidebar's right margin if any */
+}
+
+/* If your main content has a left margin or padding, remove it: */
+.page-content, .main-content, .page__inner-wrap {
+  margin-left: 0 !important;
+  padding-left: 2.5rem !important;
+}
+.masthead__inner-wrap {
+  padding-left: 2.5rem !important;  /* Use same value as your main content's padding-left */
+  box-sizing: border-box;
+}
+@media (max-width: 900px) {
+  .masthead__inner-wrap,
+  .masthead {
+    padding-left: 1rem !important;
+  }
+}
+
+

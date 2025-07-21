@@ -16,7 +16,23 @@ layout: compress
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
+<body>
+<!--   <div class="site__brand" style="position: absolute; left: 0; top: 0; z-index: 1001; padding: 24px 0 0 32px;">
+    <a href="/" style="color: #68e3ff; text-decoration: none; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.03em;">
+      nicolaszadeh.com
+    </a>
+  </div> -->
+  <!-- Then sidebar and page content below -->
+
+
+ <div class="page__container">
+  {% include sidebar.html %}
+  <main class="page-content">
     {{ content }}
+  </main>
+</div>
+
+
 
     <div class="page__footer">
       <footer>
